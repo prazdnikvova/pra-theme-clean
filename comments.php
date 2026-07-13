@@ -1,4 +1,8 @@
 <?php
+/**
+ * Comments: list, pagination and form.
+ * Nothing is shown for protected posts until the visitor unlocks them.
+ */
 if ( post_password_required() ) {
 	return;
 }

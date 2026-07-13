@@ -1,4 +1,7 @@
 <?php
+/**
+ * Older / newer pagination for post lists (index, archive, search).
+ */
 the_posts_navigation(
 	array(
 		/* translators: %s: arrow */
