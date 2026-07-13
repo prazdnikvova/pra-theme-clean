@@ -4,6 +4,11 @@
  * The batteries-included sibling lives at github.com/prazdnikvova/pra-theme.
  */
 
+/**
+ * Theme supports, text domain and the primary menu location.
+ *
+ * @return void
+ */
 add_action( 'after_setup_theme', 'pra_clean_setup' );
 function pra_clean_setup() {
 	load_theme_textdomain( 'pra-theme-clean', get_template_directory() . '/languages' );
@@ -20,6 +25,12 @@ function pra_clean_setup() {
 	);
 }
 
+/**
+ * The single stylesheet (style.css), plus comment-reply on singular views
+ * when threaded comments are open.
+ *
+ * @return void
+ */
 add_action( 'wp_enqueue_scripts', 'pra_clean_enqueue' );
 function pra_clean_enqueue() {
 	// filemtime as the version: editing the file busts the browser cache.
@@ -30,7 +41,13 @@ function pra_clean_enqueue() {
 	}
 }
 
-// Accessibility: skip link straight after <body>.
+/**
+ * Accessibility: skip link straight after <body>.
+ *
+ * Hooked at priority 5 so it is the first focusable element on the page.
+ *
+ * @return void
+ */
 add_action( 'wp_body_open', 'pra_clean_skip_link', 5 );
 function pra_clean_skip_link() {
 	echo '<a href="#content" class="skip-link screen-reader-text">' . esc_html__( 'Skip to the content', 'pra-theme-clean' ) . '</a>';
